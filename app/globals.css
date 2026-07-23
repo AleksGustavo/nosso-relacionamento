@@ -60,3 +60,48 @@
 .animate-fade-in-delayed-3 {
   animation: fade-in 0.8s ease-out 3.6s both;
 }
+
+/* Animação 3D de subida e descida dos corações */
+@keyframes float-up-3d {
+  0% {
+    transform: translateY(110vh) rotateY(0deg) rotateX(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--heart-opacity, 0.8);
+  }
+  90% {
+    opacity: var(--heart-opacity, 0.8);
+  }
+  100% {
+    transform: translateY(-20vh) rotateY(360deg) rotateX(180deg) scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes float-down-3d {
+  0% {
+    transform: translateY(-20vh) rotateY(0deg) rotateX(0deg) scale(1.1);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--heart-opacity, 0.8);
+  }
+  90% {
+    opacity: var(--heart-opacity, 0.8);
+  }
+  100% {
+    transform: translateY(110vh) rotateY(-360deg) rotateX(-180deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.animate-heart-up {
+  animation: float-up-3d var(--heart-duration, 12s) linear infinite;
+  animation-delay: var(--heart-delay, 0s);
+}
+
+.animate-heart-down {
+  animation: float-down-3d var(--heart-duration, 14s) linear infinite;
+  animation-delay: var(--heart-delay, 0s);
+}
